@@ -1,0 +1,16 @@
+<gridster [options]="options" style="min-width: 100%;overflow-x: hidden;min-height:800px;
+max-height: 800px;">
+  <gridster-item *ngFor="let i of items;index as in" [item]=i style="background: #212125;">
+    <canvas [attr.id]="canvasIds[in]" style="min-height: 100%; max-height: 100%;"></canvas>    
+  </gridster-item>
+  <gridster-item [item]="myItem[0]" style="background: #29292A;color: #D1D2D3;">
+    <div class="info">
+      <span class="info-detail">First Name : {{ firstName }}</span>
+      <span class="info-detail">Last Name : {{ lastName }}</span>
+      <span class="info-detail">Salary (Last Month): {{ lastMonthSalary }} $</span>
+      <span class="info-detail">Salary (This Month): {{ thisMonthSalary }} $</span>
+      <span class="info-detail">Hours : {{ hoursWorked }} hrs/total</span>
+    </div>
+  </gridster-item>
+</gridster>
+  

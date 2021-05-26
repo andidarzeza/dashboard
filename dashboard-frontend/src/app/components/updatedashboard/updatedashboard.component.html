@@ -1,0 +1,57 @@
+<div class="container">
+  <mat-icon id="close-icon" style="float: right;" (click)="closePanel()">close</mat-icon>
+</div>
+<gridster [options]="options" style="max-height: 710px;overflow-x: hidden;min-height: 710px;
+background: #B2B2B2;">
+  <gridster-item *ngFor="let i of myItems;index as in" [item]=i
+  style="background: #212125;">
+    <div class="actions">
+      <button mat-icon-button color="warn" style="float: right;" (click)="deleteChart(i)">  
+        <mat-icon aria-hidden="true" aria-label="Example home icon">delete</mat-icon>
+      </button>
+    </div>
+    <canvas [attr.id]="canvasIds[in]" style="min-height: 90%; max-height: 90%;"></canvas>    
+  </gridster-item>  
+
+  <gridster-item [item]="formGridsterItems[0]" style="background: #212125;">
+    <div class="name-container" style="color: #D1D2D3;">
+      <mat-form-field hintLabel="" style="width: 100%;">
+        <input style="color: #D1D2D3;" matInput #fName maxlength="15" placeholder="First Name" [(ngModel)]="firstName">
+        <mat-hint align="end">{{fName.value?.length || 0}}/15</mat-hint>
+      </mat-form-field>
+      <mat-form-field hintLabel="" style="width: 100%;">
+        <input style="color: #D1D2D3;" matInput #lName maxlength="15" placeholder="First Name" [(ngModel)]="lastName">
+        <mat-hint align="end">{{lName.value?.length || 0}}/15</mat-hint>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <input style="color: #D1D2D3;" matInput placeholder="Salary Last Month" type="number" [(ngModel)]="lastMonthSalary">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <input style="color: #D1D2D3;" matInput placeholder="Salary This Month" type="number" [(ngModel)]="thisMonthSalary">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+      <mat-form-field style="display:inline-block; width: 79.5%;">
+        <input style="color: #D1D2D3;" matInput placeholder="Hours" type="number" [(ngModel)]="hoursWorked">
+      </mat-form-field>
+
+      <mat-checkbox (change)="onWork($event)" #myCheckBox style="display:inline-block;color: #D1D2D3;margin-left: 8px;margin-top: 10px;" [checked]="working">Currently Working</mat-checkbox>
+    
+    </div>
+  </gridster-item>
+
+  <gridster-item [item]="formGridsterItems[1]" style="
+  color: #D1D2D3;background: #212125;">
+    <div class="info">
+      <span class="info-detail">First Name : {{ firstName }}</span>
+      <span class="info-detail">Last Name : {{ lastName }}</span>
+      <span class="info-detail">Salary (Last Month): {{ lastMonthSalary }} $</span>
+      <span class="info-detail">Salary (This Month): {{ thisMonthSalary }} $</span>
+      <span class="info-detail">Hours : {{ hoursWorked }} hrs/total</span>
+    </div>
+  </gridster-item>
+</gridster><br />
+<button mat-raised-button color="primary" style="background: #315273;float: left;width: 200px;height: 70px;margin-left: 10px;" (click)="addNewChart()">ADD CHART</button>
+<button mat-raised-button color="primary" style="background: #315273;float: right;width: 200px;height: 70px;margin-right: 10px;" (click)="saveChanges()">SAVE</button>

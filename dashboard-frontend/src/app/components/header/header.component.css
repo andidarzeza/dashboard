@@ -1,0 +1,26 @@
+.dashboard {
+    min-width: 250px;
+    display: inline-block;
+}
+
+.nav {
+    max-height: 90%;
+}
+
+.update-button {
+    display: inline-block;
+    width: 40%;
+}
+
+.text {
+    width: 60%;
+}
+
+.home-button {
+    display: block;
+    margin-left: 4px; 
+}
+
+.home-button:hover {
+    cursor: pointer;
+}

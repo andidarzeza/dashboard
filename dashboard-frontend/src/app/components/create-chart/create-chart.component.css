@@ -1,0 +1,12 @@
+.container{
+    width: 100%;
+    background: #212125;
+    color: white;
+}
+
+.form-container{
+    display: inline-block; 
+    width: 100%;   
+    background: #212125;
+    color: white;
+}

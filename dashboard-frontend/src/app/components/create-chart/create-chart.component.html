@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="chart-container">
+        <button mat-icon-button (click)="previous()"><mat-icon>navigate_before</mat-icon></button> 
+        <button mat-icon-button (click)="next()" style="float:right;"><mat-icon>navigate_next</mat-icon></button> 
+        
+        <canvas id='chart-sample'></canvas>
+    </div>
+
+    <div class="form-container">
+        <mat-checkbox style="display:inline-block;margin-left: 8px;margin-top: 10px;" (change)="includeSLM()">Salary (Last Month)</mat-checkbox>
+        <mat-checkbox style="display:inline-block;margin-left: 8px;margin-top: 10px;" (change)="includeSTM()">Salary (This Month)</mat-checkbox>
+        <mat-checkbox style="display:inline-block;margin-left: 8px;margin-top: 10px;" (change)="includeHW()">Hours Worked</mat-checkbox>
+    </div>
+    <button (click)="cancel()" mat-raised-button color="primary" style="margin-top: 10px;padding: 10px 25px;background: #315273;float:left;margin-left: 5px;">Cancel</button>
+    <button (click)="addChart()" mat-raised-button color="primary" style="margin-top: 10px;padding: 10px 25px;background: #315273;float:right;margin-right: 5px;">ADD CHART</button>
+</div>

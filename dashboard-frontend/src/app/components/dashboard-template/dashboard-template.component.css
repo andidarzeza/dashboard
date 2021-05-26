@@ -1,0 +1,48 @@
+p {
+  font-family: Lato;
+}
+
+gridster {
+  border-top: 1px solid black;
+}
+
+.name-container {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+}
+
+
+.date-hours-class{
+  display: inline-block;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.flow{
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.info{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5px;
+}
+
+.info-detail{
+  display: block;
+  margin-top: 33px;
+  font-size: 30px;
+  font-family: -apple-system;
+}
+
+.percentage{
+  margin-left: 35%;
+  color: red;
+}
+
+.raised{
+  color: green;
+}

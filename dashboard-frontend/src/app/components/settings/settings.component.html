@@ -1,0 +1,9 @@
+<button mat-icon-button 
+[matMenuTriggerFor]="menu"
+style="margin-left: 10px;color: white;margin-top: 5px;"><mat-icon>settings</mat-icon></button>
+
+<mat-menu #menu="matMenu" >
+    <mat-slide-toggle (click)="$event.stopPropagation()" (change)="onDragMode($event.checked)">Drag Mode</mat-slide-toggle>
+    <br />
+    <mat-slide-toggle (click)="$event.stopPropagation()" (change)="onResizeMode($event.checked)">Resize Mode</mat-slide-toggle>
+</mat-menu>

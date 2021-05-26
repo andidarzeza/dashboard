@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" style="background: #202123;">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+      <mat-icon style="margin-left: 10px;">home</mat-icon><span class="home-button" (click)="navigateHome()">Home</span>
+    <span style="flex: 1 1 auto;"></span>
+    <button mat-raised-button color="primary" style="background: #315273;padding: 7px 10px;"(click)="createDashboard()">Create Dashboard</button>
+    <app-settings></app-settings>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<mat-sidenav-container class="nav">
+  <mat-sidenav #sidenav style="background: #cfcbcb; color: #D1D2D3;">
+    <mat-nav-list>
+      <a class="dashboard" mat-list-item *ngFor="let d of dashboards;index as i">
+        <span class="text" (click)="navigateToDashboard(d.dashboardID)">{{d.employee.firstName || "Unnamed"}}</span>
+        <button mat-raised-button style="background: #315273;padding: 4px 10px;margin-right: 15px;
+        " color="primary" (click)="updateDashboard(d.dashboardID)" class="update-button">Update</button>
+        <div class="actions">
+        <button mat-icon-button color="warn" style="float: right;color:#fc7169;" (click)="deleteDashboard(d)">  
+          <mat-icon aria-hidden="true" aria-label="Example home icon">delete</mat-icon>
+        </button>
+      </div> </a>
+      <a class="dashboard" mat-list-item (click)="sidenav.toggle()"mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 100%;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

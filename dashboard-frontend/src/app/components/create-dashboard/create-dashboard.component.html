@@ -1,0 +1,51 @@
+<div class="container">
+  <mat-icon id="close-icon" style="float: right;" (click)="closePanel()">close</mat-icon>
+</div>
+<gridster [options]="options" style="max-height: 710px;overflow-x: hidden;min-height: 710px;
+background: #B2B2B2;">
+  <gridster-item *ngFor="let i of items;index as in" [item]=i
+  style="background: #212125;">
+    <canvas [attr.id]="chartIDs[in].toString()" width="200" height="100"></canvas>    
+  </gridster-item>
+
+  <gridster-item [item]="myItem[0]" style="background: #29292A;color: #D1D2D3;">
+
+    <div class="name-container">
+      <mat-form-field hintLabel="" style="width: 100%;">
+        <input style="color: #D1D2D3;" matInput #fName maxlength="15" placeholder="First Name" [(ngModel)]="firstName">
+        <mat-hint align="end">{{fName.value?.length || 0}}/15</mat-hint>
+      </mat-form-field>
+      <mat-form-field hintLabel="" style="width: 100%">
+        <input matInput #lName maxlength="15" placeholder="First Name" [(ngModel)]="lastName">
+        <mat-hint align="end">{{lName.value?.length || 0}}/15</mat-hint>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <input matInput placeholder="Salary Last Month" type="number" [(ngModel)]="lastMonthSalary">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <input matInput placeholder="Salary This Month" type="number" [(ngModel)]="thisMonthSalary">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+      <mat-form-field style="display:inline-block; width: 79.5%;">
+        <input matInput placeholder="Hours" type="number" [(ngModel)]="hoursWorked">
+      </mat-form-field>
+      <mat-checkbox color="primary" style="display:inline-block;margin-left: 8px;margin-top: 10px;" (click)="onWork()">Currently Working</mat-checkbox>
+    </div>
+  </gridster-item>
+
+  <gridster-item [item]="myItem[1]" style="background: #29292A;color: #D1D2D3;">
+    <div class="info">
+      <span class="info-detail">First Name : {{ firstName }}</span>
+      <span class="info-detail">Last Name : {{ lastName }}</span>
+      <span class="info-detail">Salary (Last Month): {{ lastMonthSalary }} $</span>
+      <span class="info-detail">Salary (This Month): {{ thisMonthSalary }} $</span>
+      <span class="info-detail">Hours : {{ hoursWorked }} hrs/total</span>
+    </div>
+  </gridster-item>
+  
+</gridster><br/>
+<button mat-raised-button color="primary" style="background: #315273;float: left;width: 200px;height: 70px;margin-left: 10px;" (click)='addWidget()'>CREATE CHART</button>
+<button mat-raised-button color="primary" style="background: #315273;float: right;width: 200px;height: 70px;margin-right: 10px;" (click)='addDashboard()'>ADD DASHBOARD</button>
